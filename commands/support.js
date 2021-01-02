@@ -1,4 +1,6 @@
 const { MessageEmbed } = require("discord.js");
+const { SERVER_INVITE , BOT_ID } = require('../config.json');
+
 
 module.exports = {
   name: "support",
@@ -10,14 +12,14 @@ module.exports = {
       .setTitle(`**Support**`)
       .setDescription(
           
-        `Support for PreoMusic,
+        `Support for <@${BOT_ID}>,
         
 
-        Join our support server [CLICK HERE](https://discord.gg/BC54rQa9c9)`
+        Join our support server [CLICK HERE](${SERVER_INVITE})`
         
       )
       .setURL(
-        `https://discord.gg/BC54rQa9c9`
+        `${SERVER_INVITE}`
       )
       .setColor("RED");
     return message.channel.send(support);

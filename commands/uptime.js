@@ -1,3 +1,5 @@
+const {EMOJI_ARROW} = require('../config.json');
+
 module.exports = {
   name: "uptime",
   aliases: ["u"],
@@ -13,7 +15,7 @@ module.exports = {
     hours %= 24;
 
     return message
-      .reply(`<a:dot:777814511423455243> My Uptime is: \`${days} day(s),${hours} hours, ${minutes} minutes, ${seconds} seconds\``)
+      .reply(`${EMOJI_ARROW} My Uptime is: \`${days} day(s),${hours} hours, ${minutes} minutes, ${seconds} seconds\``)
       .catch(console.error);
   }
 };

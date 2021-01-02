@@ -1,4 +1,5 @@
 const { canModifyQueue } = require("../util/EvobotUtil");
+const {EMOJI_DONE} = require('../config.json');
 
 module.exports = {
   name: "resume",
@@ -12,7 +13,7 @@ module.exports = {
     if (!queue.playing) {
       queue.playing = true;
       queue.connection.dispatcher.resume();
-      return queue.textChannel.send(`${message.author} ▶ resumed the music!`).catch(console.error);
+      return queue.textChannel.send(`${message.author} ▶ resumed the music!`).catch(console.error), message.react(EMOJI_DONE);
     }
 
     return message.reply("The queue is not paused.").catch(console.error);

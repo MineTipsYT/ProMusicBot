@@ -5,13 +5,12 @@ const scdl = require("soundcloud-downloader").default;
 const https = require("https");
 const { YOUTUBE_API_KEY, SOUNDCLOUD_CLIENT_ID, DEFAULT_VOLUME } = require("../util/EvobotUtil");
 const youtube = new YouTubeAPI(YOUTUBE_API_KEY);
-
+const { EMOJI_DONE } = require('../config.json');
 
 module.exports = {
   name: "play",
-  aliases: ["baja","bja","bajaa","ganna"],
+  aliases: ["baja","bja","bajaa","ganna","p"],
   cooldown: 3,
-  aliases: ["p"],
   description: "Plays audio from YouTube or Soundcloud",
   async execute(message, args) {
     const { channel } = message.member.voice;
@@ -118,7 +117,7 @@ module.exports = {
     if (serverQueue) {
       serverQueue.songs.push(song);
       return serverQueue.textChannel
-        .send(`✅ **${song.title}** has been added to the queue by ${message.author}`)
+        .send(`${EMOJI_DONE} - **${song.title}** has been added to the queue by ${message.author}`)
         .catch(console.error);
     }
 

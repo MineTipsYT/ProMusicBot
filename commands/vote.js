@@ -1,7 +1,7 @@
 
 const { MessageEmbed } = require("discord.js");
 const { COLOR } = require('../config.json');
-const { EMOJI_DONE } = require('../config.json');
+const { EMOJI_DONE , BOT_ID  } = require('../config.json');
 
 module.exports = {
   name: "vote",
@@ -14,11 +14,11 @@ module.exports = {
       .setDescription(
         
 
-        `Vote me please!\n\nLink: [Click Here](https://top.gg/bot/774642458889814066/vote) Thanks on advance`
+        `Vote me please!\n\nLink: [Click Here](https://top.gg/bot/${BOT_ID}/vote) Thanks on advance`
         
       )
       .setURL(
-        `https://top.gg/bot/774642458889814066/vote`
+        `https://top.gg/bot/${BOT_ID}/vote`
       )
 
       

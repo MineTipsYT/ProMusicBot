@@ -13,13 +13,14 @@ client.prefix = PREFIX;
 client.queue = new Map();
 const cooldowns = new Collection();
 const escapeRegex = (str) => str.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+const {BOT_PREFIX, BOT_STATUS2, BOT_STATUS3 } = require('./config.json');
 
 /**
  * Client Events
  */
 client.on("ready", () => {
    function randomStatus() {
- let status = [`&p on ${client.guilds.cache.size} Servers `]
+ let status = [`${BOT_STATUS2}`,`${BOT_STATUS3}`, `${BOT_PREFIX}play ON ${client.guilds.cache.size} Servers`]
 let rstatus = Math.floor(Math.random() * status.length);
 
 client.user.setActivity(status[rstatus], {type: "PLAYING" });

@@ -1,4 +1,5 @@
 const { canModifyQueue } = require("../util/EvobotUtil");
+const {EMOJI_DONE} = require('../config.json');
 
 module.exports = {
   name: "volume",
@@ -18,8 +19,12 @@ module.exports = {
 
     queue.volume = args[0];
     queue.connection.dispatcher.setVolumeLogarithmic(args[0] / 100);
+    
+    message.react(EMOJI_DONE);
 
     return queue.textChannel.send(`Volume set to: **${args[0]}%**`).catch(console.error);
+
+    
   }
 };
 

@@ -1,4 +1,6 @@
 const fs = require("fs");
+const {EMOJI_DONE} = require('../config.json');
+
 let config;
 
 try {
@@ -21,8 +23,12 @@ module.exports = {
       }
 
       return message.channel
-        .send(`Message pruning is ${config.PRUNING ? "**enabled**" : "**disabled**"}`)
-        .catch(console.error);
+        .send(`Message pruning is ${config.PRUNING ? "**enabled**" : "**disabled**"}`) 
+
+        
+        .catch(console.error), message.react(EMOJI_DONE);
+
+        
     });
   }
 };

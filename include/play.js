@@ -1,7 +1,7 @@
 const ytdl = require("erit-ytdl");
 const scdl = require("soundcloud-downloader").default;
 const { canModifyQueue, STAY_TIME } = require("../util/EvobotUtil");
-
+const {EMOJI_ARROW , EMOJI_STARTED_PLAYING}= require('../config.json');
 module.exports = {
   async play(song, message) {
     const { SOUNDCLOUD_CLIENT_ID } = require("../util/EvobotUtil");
@@ -76,7 +76,7 @@ module.exports = {
 
     try {
       
-     var playingMessage = await queue.textChannel.send(`<a:music_02:783975631196258324> Started playing: **${song.title}** ${song.url}`);
+     var playingMessage = await queue.textChannel.send(`${EMOJI_STARTED_PLAYING} Started playing: **${song.title}** ${song.url}`);
 
       
 

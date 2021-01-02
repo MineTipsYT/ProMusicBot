@@ -1,4 +1,7 @@
 const { MessageEmbed } = require("discord.js");
+const { EMOJI_DONE } = require('../config.json');
+
+// message.react(EMOJI_DONE);
 
 module.exports = {
   name: "h",
@@ -9,9 +12,12 @@ module.exports = {
 
     let helpEmbed = new MessageEmbed()
       .setTitle(`${message.client.user.username} Help`)
-      .setDescription("__**This are the commands of PreoMusic 3**__ <a:music_02:783975631196258324> ")
+      .setDescription(`This are the commands of PreoMusic 3  ${EMOJI_DONE}`)
+      
       .setColor("RED")
-      .setTimestamp();
+
+      .setFooter(`Hey Want to make a bot like this then - https://github.com/NIRMAL1090/ProMusicBot`);
+      
       
     commands.forEach((cmd) => {
       helpEmbed.addField(
@@ -19,9 +25,12 @@ module.exports = {
         `${cmd.description}`,
         true
       );
+     
+
+
     });
 
-    helpEmbed.setTimestamp();
+   // helpEmbed.setTimestamp();
 
     return message.channel.send(helpEmbed).catch(console.error);
   }

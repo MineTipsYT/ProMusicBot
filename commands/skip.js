@@ -1,5 +1,5 @@
 const { canModifyQueue } = require("../util/EvobotUtil");
-
+const {EMOJI_DONE} = require('../config.json');
 module.exports = {
   name: "skip",
   aliases: ["next","agla"],
@@ -13,6 +13,8 @@ module.exports = {
     queue.playing = true;
     queue.connection.dispatcher.end();
     queue.textChannel.send(`${message.author} ⏭ skipped the song`).catch(console.error);
+
+     return message.react(EMOJI_DONE);
   }
 };
 

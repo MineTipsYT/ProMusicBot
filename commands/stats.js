@@ -1,6 +1,7 @@
 
     const { MessageEmbed } = require("discord.js");
-    const { EMOJI_DONE } = require('../config.json');
+    const { EMOJI_DONE ,BOT_OWNER_ID ,SERVER_INVITE  } = require('../config.json');
+
 
     
 module.exports = {
@@ -39,14 +40,17 @@ return a + b
       .addFields(
         { name: "Servers:", value: `\`\`\`${servers_count}\`\`\``, inline: true },
         { name: "Users:", value: `\`\`\`${sum}\`\`\``, inline: true },
-        { name: "Uptime: ", value: uptime }
+        { name: "Uptime: ", value: uptime },
+
+
+        { name: "BOT OWNER",value: `<@${BOT_OWNER_ID}>`}
 
       )
 
       .setAuthor(message.client.user.username, message.client.user.displayAvatarURL() )
 
       .setURL(
-        `https://discord.com/invite/Bwa6u3D8ep`
+        `${SERVER_INVITE}`
       )
 
       .setColor("BLUE");   

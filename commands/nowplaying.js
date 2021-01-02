@@ -1,13 +1,13 @@
 const createBar = require("string-progressbar");
 const { MessageEmbed } = require("discord.js");
-
+const {EMOJI_ERROR ,EMOJI_LINE } = require('../config.json')
 module.exports = {
   name: "np",
   aliases: ["nowplaying"],
   description: "Show now playing song",
   execute(message) {
     const queue = message.client.queue.get(message.guild.id);
-    if (!queue) return message.reply("<a:reject:779738999904141353> There is nothing playing.").catch(console.error);
+    if (!queue) return message.reply(`${EMOJI_ERROR} There is nothing playing.`).catch(console.error);
 
     const song = queue.songs[0];
     const seek = (queue.connection.dispatcher.streamTime - queue.connection.dispatcher.pausedTime) / 1000;
@@ -23,9 +23,9 @@ module.exports = {
       nowPlaying.addField(
         "\u200b",
         new Date(seek * 1000).toISOString().substr(11, 8) +
-          "<a:line0:793744942257405972>" +
+          `${EMOJI_LINE}` +
           createBar(song.duration == 0 ? seek : song.duration, seek, 20)[0] +
-          "<a:line0:793744942257405972>" +
+          `${EMOJI_LINE}` +
           (song.duration == 0 ? " ◉ LIVE" : new Date(song.duration * 1000).toISOString().substr(11, 8)),
         false
       );
