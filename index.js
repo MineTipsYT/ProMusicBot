@@ -13,7 +13,7 @@ client.prefix = PREFIX;
 client.queue = new Map();
 const cooldowns = new Collection();
 const escapeRegex = (str) => str.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-const {BOT_PREFIX, BOT_STATUS2, BOT_STATUS3 } = require('./config.json');
+const {BOT_PREFIX, BOT_STATUS2, BOT_STATUS3 , BOT_PRESENCE } = require('./config.json');
 
 /**
  * Client Events
@@ -23,7 +23,7 @@ client.on("ready", () => {
  let status = [`${BOT_STATUS2}`,`${BOT_STATUS3}`, `${BOT_PREFIX}play ON ${client.guilds.cache.size} Servers`]
 let rstatus = Math.floor(Math.random() * status.length);
 
-client.user.setActivity(status[rstatus], {type: "PLAYING" });
+client.user.setActivity(status[rstatus], {type: `${BOT_PRESENCE}` });
 }; setInterval(randomStatus, 30000)
 
 console.log('Bot is ready to play songs !')
