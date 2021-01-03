@@ -1,5 +1,5 @@
 const { MessageEmbed } = require("discord.js");
-const { EMOJI_DONE } = require('../config.json');
+const { EMOJI_DONE , BOT_ID } = require('../config.json');
 
 // message.react(EMOJI_DONE);
 
@@ -12,7 +12,7 @@ module.exports = {
 
     let helpEmbed = new MessageEmbed()
       .setTitle(`${message.client.user.username} Help`)
-      .setDescription(`This are the all commands of Music bot ! ${EMOJI_DONE}`)
+      .setDescription(`This are the all commands of <@BOT_ID> ! ${EMOJI_DONE}`)
       
       .setColor("RED")
 
