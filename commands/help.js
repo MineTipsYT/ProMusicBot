@@ -12,7 +12,7 @@ module.exports = {
 
     let helpEmbed = new MessageEmbed()
       .setTitle(`${message.client.user.username} Help`)
-      .setDescription(`This are the all commands of <@BOT_ID> ! ${EMOJI_DONE}`)
+      .setDescription(`This are the all commands of <@{BOT_ID}> ! ${EMOJI_DONE}`)
       
       .setColor("RED")
 
