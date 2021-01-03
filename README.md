@@ -1,5 +1,6 @@
-# ProMusicBot
-this bot is fully customizable by just only - Config.json. 
+# PreoMusicBot
+
+You can fully customize the bot from - Config.json. 
 
 》So what things you can change in bot =
 1. You can change bot prefix ! 
