@@ -12,7 +12,7 @@ module.exports = {
 
     let helpEmbed = new MessageEmbed()
       .setTitle(`${message.client.user.username} Help`)
-      .setDescription(`This are the commands of PreoMusic 3  ${EMOJI_DONE}`)
+      .setDescription(`This are the all commands of Music bot ! ${EMOJI_DONE}`)
       
       .setColor("RED")
 
