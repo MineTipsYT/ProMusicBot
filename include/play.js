@@ -1,10 +1,10 @@
 const ytdl = require("erit-ytdl");
 const scdl = require("soundcloud-downloader").default;
-const { canModifyQueue, STAY_TIME } = require("../util/EvobotUtil");
-const {EMOJI_ARROW , EMOJI_STARTED_PLAYING}= require('../config.json');
+const { canModifyQueue, STAY_TIME } = require("../util/PreobotUtil");
+const {EMOJI_ARROW , EMOJI_STARTED_PLAYING , EMOJI_DONE }= require('../config.json');
 module.exports = {
   async play(song, message) {
-    const { SOUNDCLOUD_CLIENT_ID } = require("../util/EvobotUtil");
+    const { SOUNDCLOUD_CLIENT_ID } = require("../util/PreobotUtil");
 
     let config;
 
@@ -75,10 +75,15 @@ module.exports = {
     dispatcher.setVolumeLogarithmic(queue.volume / 100);
 
     try {
-      
-     var playingMessage = await queue.textChannel.send(`${EMOJI_STARTED_PLAYING} Started playing: **${song.title}** ${song.url}`);
+
 
       
+   
+      
+var playingMessage = await queue.textChannel.send(`
+${EMOJI_STARTED_PLAYING} Started playing : 
+${EMOJI_ARROW} ***NAME :*** ${song.title} 
+${EMOJI_ARROW} ***LINK :*** ${song.url}`);
 
       await playingMessage.react("⏭");
       await playingMessage.react("⏸");
@@ -164,14 +169,14 @@ module.exports = {
           reaction.users.remove(user).catch(console.error);
           if (!canModifyQueue(member)) return;
           queue.loop = !queue.loop;
-          queue.textChannel.send(`Loop is now ${queue.loop ? "**on**" : "**off**"}`).catch(console.error);
+          queue.textChannel.send(`${EMOJI_DONE} Loop is now ${queue.loop ? "**on**" : "**off**"}`).catch(console.error);
           break;
 
         case "⏹":
           reaction.users.remove(user).catch(console.error);
           if (!canModifyQueue(member)) return;
           queue.songs = [];
-          queue.textChannel.send(`⏹ stopped the music!`).catch(console.error);
+          queue.textChannel.send(`${EMOJI_DONE} stopped the music!`).catch(console.error);
           try {
             queue.connection.dispatcher.end();
           } catch (error) {

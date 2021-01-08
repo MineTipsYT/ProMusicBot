@@ -16,7 +16,7 @@ USER ${USER}
 WORKDIR /home/evobot
 
 COPY package*.json ./
-RUN npm install
+RUN npm install 
 VOLUME [ "/home/evobot" ]
 
 COPY . .

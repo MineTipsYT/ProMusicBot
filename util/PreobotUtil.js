@@ -1,9 +1,10 @@
 exports.canModifyQueue = (member) => {
   const { channelID } = member.voice;
   const botChannel = member.guild.voice.channelID;
+const {EMOJI_ERROR} = require('../config.json');
 
   if (channelID !== botChannel) {
-    member.send("You need to join the voice channel first!").catch(console.error);
+    member.send(` ${EMOJI_ERROR}You need to join the voice channel first!`).catch(console.error);
     return;
   }
 

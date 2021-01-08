@@ -1,5 +1,5 @@
 const move = require("array-move");
-const { canModifyQueue } = require("../util/EvobotUtil");
+const { canModifyQueue } = require("../util/PreobotUtil");
 
 module.exports = {
   name: "move",

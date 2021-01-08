@@ -27,11 +27,11 @@ module.exports = {
         .play(`./sounds/${args[0]}.mp3`)
         .on("finish", () => {
           message.client.queue.delete(message.guild.id);
-          channel.leave();
+          // channel.leave();
         })
         .on("error", err => {
           message.client.queue.delete(message.guild.id);
-          channel.leave();
+          // channel.leave();
           console.error(err);
         });
     } catch (error) {

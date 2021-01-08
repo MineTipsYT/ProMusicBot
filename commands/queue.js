@@ -1,4 +1,5 @@
 const { MessageEmbed } = require("discord.js");
+const { EMOJI_ERROR } = require('../config.json');
 
 module.exports = {
   name: "queue",
@@ -11,7 +12,7 @@ module.exports = {
       return message.reply("Missing permission to manage messages or add reactions");
 
     const queue = message.client.queue.get(message.guild.id);
-    if (!queue) return message.channel.send("❌ **Nothing playing in this server**");
+    if (!queue) return message.channel.send(`${EMOJI_ERROR} **Nothing playing in this server**`);
 
     let currentPage = 0;
     const embeds = generateQueueEmbed(message, queue.songs);

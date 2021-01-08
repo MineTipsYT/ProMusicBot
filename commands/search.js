@@ -1,6 +1,6 @@
 const { MessageEmbed } = require("discord.js");
 const YouTubeAPI = require("simple-youtube-api");
-const { YOUTUBE_API_KEY } = require("../util/EvobotUtil");
+const { YOUTUBE_API_KEY } = require("../util/PreobotUtil");
 const youtube = new YouTubeAPI(YOUTUBE_API_KEY);
 
 module.exports = {

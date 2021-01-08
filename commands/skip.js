@@ -1,4 +1,4 @@
-const { canModifyQueue } = require("../util/EvobotUtil");
+const { canModifyQueue } = require("../util/PreobotUtil");
 const {EMOJI_DONE} = require('../config.json');
 module.exports = {
   name: "skip",
