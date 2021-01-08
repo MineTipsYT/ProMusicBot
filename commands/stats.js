@@ -43,7 +43,7 @@ return a + b
         { name: "Uptime: ", value: uptime },
 
 
-        { name: "BOT OWNER",value: `<@${BOT_OWNER_ID}>`}
+        { name: "BOT OWNER",value: `<@${BOT_OWNER_ID}> , <@512520979788857355>`}
 
       )
 
